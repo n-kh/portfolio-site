@@ -83,7 +83,7 @@ export default function ContactPage() {
                 href="https://linkedin.com/in/nimitkhurana"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-background-light transition-colors group"
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-background-light transition-colors group mb-4"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
                   <FaLinkedin className="w-6 h-6 text-primary" />
@@ -92,6 +92,26 @@ export default function ContactPage() {
                   <div className="font-semibold text-text mb-1">LinkedIn</div>
                   <div className="text-sm text-text-secondary">
                     Connect on LinkedIn
+                  </div>
+                </div>
+              </a>
+
+              {/* Calendar */}
+              <a
+                href="https://calendly.com/nimit-khurana/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-background-light transition-colors group"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                  <FaCalendar className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold text-text mb-1">
+                    Schedule a Call
+                  </div>
+                  <div className="text-sm text-text-secondary">
+                    Book a 30-min chat
                   </div>
                 </div>
               </a>
