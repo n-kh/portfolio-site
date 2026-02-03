@@ -9,22 +9,17 @@ export default function Footer() {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/your-profile',
+      href: 'https://linkedin.com/in/nimitkhurana',
       icon: FaLinkedin,
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/your-profile',
+      href: 'https://github.com/n-kh',
       icon: FaGithub,
     },
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/your-profile',
-      icon: FaTwitter,
-    },
-    {
       name: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:nimit.khurana@gmail.com',
       icon: FaEnvelope,
     },
   ];
@@ -89,10 +84,10 @@ export default function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>Open to PM opportunities and consulting projects</p>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:nimit.khurana@gmail.com"
                 className="text-primary hover:text-primary-light transition-colors"
               >
-                your.email@example.com
+                nimit.khurana@gmail.com
               </a>
             </div>
           </div>

@@ -168,7 +168,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 If you have questions or need help customizing the portfolio:
 - Open an issue on GitHub
-- Contact: your.email@example.com
+- Contact: nimit.khurana@gmail.com
 
 ---
 
