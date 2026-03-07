@@ -1,0 +1,128 @@
+[
+  {
+    "timestamp": "2026-01-11T12:48:15.897200",
+    "original_prompt": "How to improve search?",
+    "enhanced_prompt": "\nCUSTOMER-BACKWARD PRODUCT MANAGEMENT CONTEXT:\nYou are making product decisions for Salesforce Knowledge. Always prioritize customer value and feedback.\n\nORIGINAL PROMPT:\nHow to improve search?\n\nRELEVANT CUSTOMER FEEDBACK TO CONSIDER:\n\n--- Search & Discovery ---\nProblem: Users struggle with search syntax, filters, and result relevance, especially in large orgs. This erodes trust in self-service and pushes people back to creating cases unnecessarily.\nImprovement Plan:\n  \u2022 Invest in relevance tuning: boost by case context, product, issue type, and prior article success; expose admin controls for tuning without code.\n  \u2022 Enhance UX for filters and facets: clearer labels, saved search scopes, and better handling of common synonyms and typos via AI-based suggestions.\n  \u2022 Add search insights: out\u2011of\u2011the\u2011box reports for 'zero\u2011result queries', 'queries with quick exits', and 'high deflection queries' to highlight content gaps.\nKey Metrics: Search success rate, Zero-result query percentage, Case deflection rate from search, Time to find relevant article\n\nKEY CUSTOMER INSIGHTS:\n  \u2022 [end_customer] Search doesn't find the right article, or returns too many/too few results - High - Erodes trust in self-service, increases case volume\n  \u2022 [author] Content structure and formatting make articles hard to scan - Medium - Reduces content effectiveness, increases support burden\n  \u2022 [admin] Managing versions, lifecycle, and ownership is painful - High - Content becomes outdated, governance breaks down\n\nCUSTOMER-BACKWARD THINKING PRINCIPLES:\n1. Always ask: \"How does this solve a real customer problem?\"\n2. Prioritize features that address high-priority pain points\n3. Consider impact on case deflection and self-service success\n4. Ensure solutions are measurable against customer success metrics\n5. Think about all user types: admins, authors, agents, and end customers\n\nNow, provide your response considering the above customer context:\n",
+    "relevant_feedback_themes": {
+      "search_discovery": {
+        "category": "Search & Discovery",
+        "problem": "Users struggle with search syntax, filters, and result relevance, especially in large orgs. This erodes trust in self-service and pushes people back to creating cases unnecessarily.",
+        "improvements": [
+          "Invest in relevance tuning: boost by case context, product, issue type, and prior article success; expose admin controls for tuning without code.",
+          "Enhance UX for filters and facets: clearer labels, saved search scopes, and better handling of common synonyms and typos via AI-based suggestions.",
+          "Add search insights: out\u2011of\u2011the\u2011box reports for 'zero\u2011result queries', 'queries with quick exits', and 'high deflection queries' to highlight content gaps."
+        ],
+        "metrics": [
+          "Search success rate",
+          "Zero-result query percentage",
+          "Case deflection rate from search",
+          "Time to find relevant article"
+        ]
+      }
+    },
+    "customer_insights_considered": [
+      {
+        "user_type": "end_customer",
+        "pain_point": "Search doesn't find the right article, or returns too many/too few results",
+        "impact": "High - Erodes trust in self-service, increases case volume",
+        "priority": "high"
+      },
+      {
+        "user_type": "author",
+        "pain_point": "Content structure and formatting make articles hard to scan",
+        "impact": "Medium - Reduces content effectiveness, increases support burden",
+        "priority": "high"
+      },
+      {
+        "user_type": "admin",
+        "pain_point": "Managing versions, lifecycle, and ownership is painful",
+        "impact": "High - Content becomes outdated, governance breaks down",
+        "priority": "high"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-11T12:48:15.897207",
+    "original_prompt": "What authoring features are needed?",
+    "enhanced_prompt": "\nCUSTOMER-BACKWARD PRODUCT MANAGEMENT CONTEXT:\nYou are making product decisions for Salesforce Knowledge. Always prioritize customer value and feedback.\n\nORIGINAL PROMPT:\nWhat authoring features are needed?\n\nRELEVANT CUSTOMER FEEDBACK TO CONSIDER:\n\n--- Authoring & Content Quality ---\nProblem: Authors and SMEs want more flexible layouts, richer media, and tools to keep content current without manual overhead. End users want step\u2011by\u2011step, visual content tuned to their role, not long generic articles.\nImprovement Plan:\n  \u2022 Upgrade the editor: first\u2011class support for templates, collapsible sections, checklists, and inline multimedia to match modern help-center expectations.\n  \u2022 Guided authoring: wizards that generate a structure based on problem type, with prompts to add prerequisites, steps, troubleshooting, and next actions.\n  \u2022 Content health signals: show 'stale', 'low rated', and 'high search views but low success' tags directly in the author queue to prioritize updates.\nKey Metrics: Content freshness score, Author productivity (articles per hour), End-user content rating, Content consumption rate\n\nKEY CUSTOMER INSIGHTS:\n  \u2022 [end_customer] Search doesn't find the right article, or returns too many/too few results - High - Erodes trust in self-service, increases case volume\n  \u2022 [author] Content structure and formatting make articles hard to scan - Medium - Reduces content effectiveness, increases support burden\n  \u2022 [admin] Managing versions, lifecycle, and ownership is painful - High - Content becomes outdated, governance breaks down\n\nCUSTOMER-BACKWARD THINKING PRINCIPLES:\n1. Always ask: \"How does this solve a real customer problem?\"\n2. Prioritize features that address high-priority pain points\n3. Consider impact on case deflection and self-service success\n4. Ensure solutions are measurable against customer success metrics\n5. Think about all user types: admins, authors, agents, and end customers\n\nNow, provide your response considering the above customer context:\n",
+    "relevant_feedback_themes": {
+      "authoring_quality": {
+        "category": "Authoring & Content Quality",
+        "problem": "Authors and SMEs want more flexible layouts, richer media, and tools to keep content current without manual overhead. End users want step\u2011by\u2011step, visual content tuned to their role, not long generic articles.",
+        "improvements": [
+          "Upgrade the editor: first\u2011class support for templates, collapsible sections, checklists, and inline multimedia to match modern help-center expectations.",
+          "Guided authoring: wizards that generate a structure based on problem type, with prompts to add prerequisites, steps, troubleshooting, and next actions.",
+          "Content health signals: show 'stale', 'low rated', and 'high search views but low success' tags directly in the author queue to prioritize updates."
+        ],
+        "metrics": [
+          "Content freshness score",
+          "Author productivity (articles per hour)",
+          "End-user content rating",
+          "Content consumption rate"
+        ]
+      }
+    },
+    "customer_insights_considered": [
+      {
+        "user_type": "end_customer",
+        "pain_point": "Search doesn't find the right article, or returns too many/too few results",
+        "impact": "High - Erodes trust in self-service, increases case volume",
+        "priority": "high"
+      },
+      {
+        "user_type": "author",
+        "pain_point": "Content structure and formatting make articles hard to scan",
+        "impact": "Medium - Reduces content effectiveness, increases support burden",
+        "priority": "high"
+      },
+      {
+        "user_type": "admin",
+        "pain_point": "Managing versions, lifecycle, and ownership is painful",
+        "impact": "High - Content becomes outdated, governance breaks down",
+        "priority": "high"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-01-11T12:48:15.897213",
+    "original_prompt": "How to improve governance?",
+    "enhanced_prompt": "\nCUSTOMER-BACKWARD PRODUCT MANAGEMENT CONTEXT:\nYou are making product decisions for Salesforce Knowledge. Always prioritize customer value and feedback.\n\nORIGINAL PROMPT:\nHow to improve governance?\n\nRELEVANT CUSTOMER FEEDBACK TO CONSIDER:\n\n--- Governance, Scale, and Lifecycle ---\nProblem: Admins report friction managing large article volumes, limits, and lifecycle across products and regions. Without clear ownership and workflows, content quickly becomes inconsistent or outdated.\nImprovement Plan:\n  \u2022 Stronger lifecycle workflows: configurable states (Draft, Review, SME Approved, Legal Approved, Published, Retire) with auto\u2011notifications and SLAs.\n  \u2022 Scalable information architecture: opinionated defaults and diagnostics for data categories, record types, and limits, plus alerts as orgs approach constraints.\n  \u2022 Role\u2011based work queues: views for 'My products', 'Articles awaiting my review', and 'Articles expiring soon' for admins, owners, and SMEs.\nKey Metrics: Content governance efficiency, Time to publish, Content ownership clarity, Workflow compliance rate\n\nKEY CUSTOMER INSIGHTS:\n  \u2022 [end_customer] Search doesn't find the right article, or returns too many/too few results - High - Erodes trust in self-service, increases case volume\n  \u2022 [author] Content structure and formatting make articles hard to scan - Medium - Reduces content effectiveness, increases support burden\n  \u2022 [admin] Managing versions, lifecycle, and ownership is painful - High - Content becomes outdated, governance breaks down\n\nCUSTOMER-BACKWARD THINKING PRINCIPLES:\n1. Always ask: \"How does this solve a real customer problem?\"\n2. Prioritize features that address high-priority pain points\n3. Consider impact on case deflection and self-service success\n4. Ensure solutions are measurable against customer success metrics\n5. Think about all user types: admins, authors, agents, and end customers\n\nNow, provide your response considering the above customer context:\n",
+    "relevant_feedback_themes": {
+      "governance_lifecycle": {
+        "category": "Governance, Scale, and Lifecycle",
+        "problem": "Admins report friction managing large article volumes, limits, and lifecycle across products and regions. Without clear ownership and workflows, content quickly becomes inconsistent or outdated.",
+        "improvements": [
+          "Stronger lifecycle workflows: configurable states (Draft, Review, SME Approved, Legal Approved, Published, Retire) with auto\u2011notifications and SLAs.",
+          "Scalable information architecture: opinionated defaults and diagnostics for data categories, record types, and limits, plus alerts as orgs approach constraints.",
+          "Role\u2011based work queues: views for 'My products', 'Articles awaiting my review', and 'Articles expiring soon' for admins, owners, and SMEs."
+        ],
+        "metrics": [
+          "Content governance efficiency",
+          "Time to publish",
+          "Content ownership clarity",
+          "Workflow compliance rate"
+        ]
+      }
+    },
+    "customer_insights_considered": [
+      {
+        "user_type": "end_customer",
+        "pain_point": "Search doesn't find the right article, or returns too many/too few results",
+        "impact": "High - Erodes trust in self-service, increases case volume",
+        "priority": "high"
+      },
+      {
+        "user_type": "author",
+        "pain_point": "Content structure and formatting make articles hard to scan",
+        "impact": "Medium - Reduces content effectiveness, increases support burden",
+        "priority": "high"
+      },
+      {
+        "user_type": "admin",
+        "pain_point": "Managing versions, lifecycle, and ownership is painful",
+        "impact": "High - Content becomes outdated, governance breaks down",
+        "priority": "high"
+      }
+    ]
+  }
+]
