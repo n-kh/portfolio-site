@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
 import type { CaseStudy } from '@/data/case-studies';
 
@@ -73,13 +72,15 @@ export default function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardPro
         </div>
 
         {/* Read more link */}
-        <Link
-          href={`/case-studies/${caseStudy.slug}`}
+        <a
+          href={caseStudy.substackUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
         >
-          Read Full Case Study
+          Read on Substack
           <HiArrowRight className="w-5 h-5" />
-        </Link>
+        </a>
       </div>
     </motion.div>
   );

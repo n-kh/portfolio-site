@@ -2,9 +2,11 @@ import { Metadata } from 'next';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import { caseStudiesData } from '@/data/case-studies';
 
+const SUBSTACK_BASE_URL = 'https://substack.com/@nimitkhurana';
+
 export const metadata: Metadata = {
   title: 'Case Studies - Nimit Khurana',
-  description: 'Explore detailed case studies of AI/ML products I\'ve built, including recommendation systems, intelligent search, and document processing.',
+  description: 'Explore case studies of AI/ML products I\'ve built. Read the full breakdowns on Substack.',
 };
 
 export default function CaseStudiesPage() {
@@ -16,11 +18,18 @@ export default function CaseStudiesPage() {
           <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">
             Case Studies
           </h1>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Detailed breakdowns of AI/ML products I've shipped. Each case study
-            follows the PM storytelling framework: Problem → Approach → Solution →
-            Impact → Learnings.
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-6">
+            Detailed breakdowns of AI/ML products I've shipped. Read the full
+            case studies on Substack.
           </p>
+          <a
+            href={SUBSTACK_BASE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-md"
+          >
+            Subscribe on Substack
+          </a>
         </div>
 
         {/* Case studies grid */}

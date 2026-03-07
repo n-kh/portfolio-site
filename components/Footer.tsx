@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { FaLinkedin, FaGithub, FaEnvelope, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { SiSubstack } from 'react-icons/si';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,6 +17,11 @@ export default function Footer() {
       name: 'GitHub',
       href: 'https://github.com/n-kh',
       icon: FaGithub,
+    },
+    {
+      name: 'Substack',
+      href: 'https://substack.com/@nimitkhurana',
+      icon: SiSubstack,
     },
     {
       name: 'Email',
