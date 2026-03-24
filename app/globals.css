@@ -46,7 +46,7 @@
 
   /* Gradient text effect */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-electric-indigo to-neon-cyan;
   }
 
   /* Card hover effect */
