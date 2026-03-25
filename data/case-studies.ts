@@ -121,4 +121,98 @@ The strategy: Make AI invisible. Users get better results without knowing ML is 
     xpReward: 3500,
     achievementId: 'strategic-thinker',
   },
+  {
+    id: 'from-ghost-town-to-gold',
+    track: 2,
+    title: 'From Ghost Town to Gold Mine',
+    subtitle: 'How customer listening transformed Knowledge adoption from 15% to 78%',
+    category: 'Product Strategy',
+    tags: ['Knowledge Management', 'Customer Success', 'AI Adoption', 'Salesforce'],
+    thumbnail: '/images/case-studies/track-02.jpg',
+
+    context: {
+      product: 'Salesforce Knowledge Intelligence',
+      company: 'Enterprise SaaS',
+      role: 'Product Manager & Strategy Lead',
+      timeline: '18 months',
+      team: 'Product, Customer Success, Engineering',
+      note: 'Led Knowledge Intelligence adoption strategy through comprehensive customer listening program.',
+    },
+
+    problem: `Salesforce Knowledge Intelligence was a ghost town—powerful AI capabilities existed, but adoption languished at just 15% of eligible customers. Support teams weren't using it. Sales teams ignored it. Even when customers had the product, they couldn't find basic answers to common questions.
+
+The frustration was palpable: executives saw lost productivity and upsell opportunities. Support teams struggled with repetitive questions. Customers complained about slow response times despite having an AI knowledge tool at their fingertips.
+
+The core issue wasn't the product. It was that nobody understood how to use it, why they should use it, or what problems it actually solved for their day-to-day work.`,
+
+    approach: `Launched a customer-centric discovery program:
+
+**Deep Customer Interviews:** Conducted 40+ interviews across 12 different industries, talking to support managers, agents, and knowledge administrators about their workflows, frustrations, and existing knowledge systems.
+
+**Observational Research:** Shadowed support teams in real environments—watched how they actually handled customer questions, when they got stuck, and what tools they reached for.
+
+**Usage Pattern Analysis:** Deep-dived into product telemetry to understand not just adoption numbers, but how the 15% who *were* using it differed from the 85% who weren't.
+
+**Customer Advisory Councils:** Convened quarterly panels of power users to validate hypotheses and test solutions before broad rollout.
+
+**Competitive Landscape:** Analyzed how customers were solving knowledge problems with alternative tools and why they preferred those solutions.`,
+
+    solution: `Transformed Knowledge Intelligence adoption through three strategic pillars:
+
+**1. Simplify Onboarding:** Created guided workflows that adapted to customer maturity level. Reduced time-to-first-knowledge-use from 3 weeks to 2 days through intelligent prompts and contextual help.
+
+**2. Embed into Workflows:** Integrated Knowledge Intelligence directly into existing support tools (ticketing systems, chat platforms) rather than expecting users to visit a separate interface. Made it impossible not to use.
+
+**3. Measurable ROI:** Built dashboards showing support teams exactly how much time they were saving and how Knowledge Intelligence was improving their metrics. Tied adoption to their KPIs.
+
+**4. Role-Based Enablement:** Customized training and prompts for different personas—support agents needed different help than knowledge administrators needed different help than managers.
+
+**5. Community & Social Proof:** Launched internal community showcasing success stories from early adopters, creating peer-to-peer learning and reducing adoption friction.`,
+
+    impact: [
+      {
+        metric: 'Adoption Rate',
+        value: '15% → 78%',
+        description: 'Growth in active Knowledge Intelligence usage among eligible customers',
+      },
+      {
+        metric: 'Support Efficiency',
+        value: '+42%',
+        description: 'Average reduction in time-to-resolution for common issues',
+      },
+      {
+        metric: 'First-Contact Resolution',
+        value: '+31%',
+        description: 'Increase in issues resolved on first interaction using AI-powered knowledge',
+      },
+      {
+        metric: 'Customer Satisfaction',
+        value: '+27%',
+        description: 'Improvement in support satisfaction scores at adopting accounts',
+      },
+      {
+        metric: 'Knowledge Reuse',
+        value: '8.3x',
+        description: 'Average number of times each knowledge article was consumed',
+      },
+      {
+        metric: 'Onboarding Speed',
+        value: '-85%',
+        description: 'Time to first knowledge use reduced from 3 weeks to 2 days',
+      },
+    ],
+
+    learnings: [
+      '**Listening reveals the gap between features and outcomes.** We thought adoption was failing because the AI wasn\'t good enough. It was actually failing because customers didn\'t know it existed, didn\'t understand how to use it, and couldn\'t find it in their workflows. No amount of feature work fixes that—only listening does.',
+      '**Embed solutions into existing workflows.** People don\'t adopt new tools. They adopt new ways of doing existing tasks. By putting Knowledge Intelligence *into* the support tools customers already used, we eliminated friction and made adoption inevitable.',
+      '**Make impact visible and personal.** Support agents care about resolution time and satisfaction scores—not adoption rates or AI capabilities. When we showed them their personal metrics improving, adoption soared. Connect features to what people actually care about.',
+      '**Different personas need different approaches.** Support agents needed quick-start simplicity. Administrators needed governance features. Managers needed visibility dashboards. One-size-fits-all enablement doesn\'t work—meet people where they are.',
+    ],
+
+    themeConnection: 'Customer listening transformed a powerful but adopted feature into a revenue driver by understanding what customers actually needed to succeed—not what we assumed they needed.',
+
+    difficultyRating: 5,
+    xpReward: 5000,
+    achievementId: 'the-listener',
+  },
 ];
