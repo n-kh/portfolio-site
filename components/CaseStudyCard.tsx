@@ -1,87 +1,83 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiArrowRight } from 'react-icons/hi';
+import Link from 'next/link';
+import { cardHover } from '@/lib/animations';
 import type { CaseStudy } from '@/data/case-studies';
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
-  index?: number;
+  index: number;
 }
 
-export default function CaseStudyCard({ caseStudy, index = 0 }: CaseStudyCardProps) {
+export default function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
+  const difficultyStars = '⚡'.repeat(caseStudy.difficultyRating);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
-      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-background-gray"
-    >
-      {/* Hero Image Placeholder */}
-      <div className="relative h-56 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl">{caseStudy.tags[0] === 'Recommendation Systems' ? '🎯' : caseStudy.tags[0] === 'NLP' ? '🔍' : '📄'}</div>
+    <Link href={`/case-studies/${caseStudy.id}`}>
+      <motion.div
+        className="relative bg-charcoal rounded-lg overflow-hidden border border-electric-indigo/20 hover:border-neon-cyan/50 transition-colors group"
+        variants={cardHover}
+        initial="rest"
+        whileHover="hover"
+        custom={index}
+      >
+        {/* Track Badge */}
+        <div className="absolute top-4 left-4 z-10">
+          <div className="bg-electric-indigo/90 backdrop-blur-sm px-3 py-1 rounded-full font-mono text-sm">
+            ♫ TRACK {String(caseStudy.track).padStart(2, '0')}
+          </div>
         </div>
 
-        {/* Category badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary text-sm font-semibold rounded-full">
-            {caseStudy.category}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {caseStudy.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-1 bg-background-gray text-text-secondary text-xs font-medium rounded"
-            >
-              {tag}
-            </span>
-          ))}
+        {/* Difficulty Rating */}
+        <div className="absolute top-4 right-4 z-10">
+          <div className="text-amber-gold text-lg">{difficultyStars}</div>
         </div>
 
-        {/* Title */}
-        <h3 className="text-2xl font-bold text-text mb-2 group-hover:text-primary transition-colors">
-          {caseStudy.title}
-        </h3>
+        {/* Thumbnail Placeholder */}
+        <div className="relative h-48 bg-gradient-to-br from-deep-purple/30 to-electric-indigo/30 flex items-center justify-center">
+          <div className="text-6xl opacity-30">
+            {index === 0 && '🔍'}
+            {index === 1 && '📈'}
+            {index === 2 && '🌈'}
+            {index === 3 && '🎯'}
+          </div>
+        </div>
 
-        {/* Subtitle */}
-        <p className="text-text-secondary mb-4 line-clamp-2">
-          {caseStudy.subtitle}
-        </p>
+        {/* Content */}
+        <div className="p-6">
+          <h3 className="font-display text-2xl mb-2 group-hover:text-neon-cyan transition-colors">
+            {caseStudy.title}
+          </h3>
 
-        {/* Key metrics preview */}
-        <div className="grid grid-cols-3 gap-3 mb-6 py-4 border-t border-b border-background-gray">
-          {caseStudy.impact.slice(0, 3).map((metric, idx) => (
-            <div key={idx} className="text-center">
-              <div className="text-lg font-bold text-primary">
-                {metric.value}
-              </div>
-              <div className="text-xs text-text-secondary line-clamp-1">
-                {metric.metric}
-              </div>
+          <p className="text-text-secondary mb-4 line-clamp-2">
+            {caseStudy.subtitle}
+          </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {caseStudy.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-1 bg-midnight text-xs text-text-secondary rounded border border-electric-indigo/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Play Button */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-neon-cyan font-medium group-hover:gap-3 transition-all">
+              <span>▶ Play Track</span>
             </div>
-          ))}
-        </div>
 
-        {/* Read more link */}
-        <a
-          href={caseStudy.substackUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-        >
-          Read on Substack
-          <HiArrowRight className="w-5 h-5" />
-        </a>
-      </div>
-    </motion.div>
+            <span className="font-mono text-sm text-text-muted">
+              +{caseStudy.xpReward} XP
+            </span>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
