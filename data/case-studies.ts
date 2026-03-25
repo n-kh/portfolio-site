@@ -215,4 +215,230 @@ The core issue wasn't the product. It was that nobody understood how to use it, 
     xpReward: 5000,
     achievementId: 'the-listener',
   },
+  {
+    id: 'multi-dimensional',
+    track: 3,
+    title: 'Multi-Dimensional',
+    subtitle: 'AI that works across docs, videos, audio—seamlessly',
+    category: 'AI/ML',
+    tags: ['Multi-modal AI', 'UX Design', 'Search', 'Salesforce'],
+    thumbnail: '/images/case-studies/track-03.jpg',
+
+    context: {
+      product: 'Knowledge Intelligence',
+      company: 'Salesforce',
+      role: 'Senior Product Manager',
+      timeline: '2023-2024',
+      team: '15 engineers, 3 PMs, ML team collaboration',
+      note: 'Metrics are approximate/aggregated for confidentiality',
+    },
+
+    problem: `Customers had knowledge scattered across formats—documents, PDFs, videos, audio recordings, images. Manual search across these content types was a nightmare. Traditional search only handled text well.
+
+Users lost context switching between different systems to find information. They'd search docs in one place, videos in another, audio transcripts somewhere else.
+
+The challenge: make AI work across all content types seamlessly, without overwhelming users with mixed-media results.`,
+
+    approach: `**Technical Architecture:**
+Built unified ingestion pipeline for all content types with separate processors (OCR, speech-to-text, video frame analysis) feeding into a unified vector space for semantic search.
+
+**Hybrid Search Strategy:**
+- Keyword + semantic retrieval across all formats
+- Agentic system decides which sources to surface
+- Reasoning transparency (explains why results were chosen)
+
+**UX Challenges Solved:**
+
+*1. Mixed-Media Results Display*
+- Problem: How to show videos, docs, images together?
+- Solution: Contextual result cards that adapt to content type
+- Preview capabilities inline (thumbnails, snippets, duration)
+
+*2. Cross-Modal Navigation*
+- Problem: User finds video, wants related docs
+- Solution: Semantic "related content" across formats
+- Not just folder structure—actual content relationships
+
+*3. Format Preferences*
+- Problem: Some users prefer text, others video
+- Solution: Configurable result weighting
+- System learns preferences over time`,
+
+    solution: `**1. Unified Ingestion System**
+- All content types flow through single pipeline
+- Format-specific processors extract meaning
+- Unified vector embeddings for search
+
+**2. Adaptive Result Cards**
+- Documents: Show title, snippet, page count
+- Videos: Thumbnail, duration, transcript preview
+- Audio: Waveform, speaker info, transcript
+- Images: Preview with OCR-extracted text
+
+**3. Cross-Modal Recommendations**
+"Related content" that actually understands relationships across formats, not just file locations.
+
+**4. User Preference Learning**
+System adapts to whether user prefers video walkthroughs vs. written docs.`,
+
+    impact: [
+      {
+        metric: 'Extraction Accuracy',
+        value: '96%',
+        description: 'Accuracy on content extraction across all formats',
+      },
+      {
+        metric: 'Processing Speed',
+        value: '24 sec',
+        description: 'Average processing time (vs. 5 min manual)',
+      },
+      {
+        metric: 'Content Upload',
+        value: '+3.2x',
+        description: 'More content types uploaded after multi-modal launch',
+      },
+      {
+        metric: 'Support Tickets',
+        value: '-47%',
+        description: 'Reduction in "can\'t find" support requests',
+      },
+      {
+        metric: 'Monthly Volume',
+        value: '1M+',
+        description: 'Documents processed monthly across all formats',
+      },
+    ],
+
+    learnings: [
+      '**Multi-modal isn\'t a technology showcase—it\'s meeting users where their content lives.** Don\'t force users to adapt their content to your system. Make your system understand their content.',
+      '**Context switching is invisible friction.** Users didn\'t articulate "I hate switching between systems" but usage patterns showed it. Eliminating mode switches drove adoption.',
+      '**Preview matters more than you think.** Letting users see video thumbnails and transcript snippets before clicking saved massive time. Small UX details have big impact.',
+      '**Let users teach the system.** Format preference learning meant the system got smarter for each user individually. Personalization without explicit configuration.',
+    ],
+
+    themeConnection: 'Listened to *how* customers actually stored knowledge—not just text—and designed the system to match their reality instead of forcing them to match ours.',
+
+    difficultyRating: 5,
+    xpReward: 4000,
+    achievementId: 'multi-dimensional',
+  },
+  {
+    id: 'every-user-their-own-universe',
+    track: 4,
+    title: 'Every User, Their Own Universe',
+    subtitle: 'CEOs wanted automation, Knowledge Managers wanted control—both were right',
+    category: 'B2B SaaS',
+    tags: ['Segmentation', 'AI Ethics', 'UX', 'Salesforce'],
+    thumbnail: '/images/case-studies/track-04.jpg',
+
+    context: {
+      product: 'Knowledge Intelligence',
+      company: 'Salesforce',
+      role: 'Senior Product Manager',
+      timeline: '2023-2024',
+      team: '15 engineers, 3 PMs',
+      note: 'Metrics are approximate/aggregated for confidentiality',
+    },
+
+    problem: `Initial product had one-size-fits-all AI automation. This created conflict between stakeholder groups:
+
+**CEOs/Leadership:**
+- Wanted "set and forget" automation
+- Saw AI as time-saver, wanted maximum autonomy
+- Frustrated by manual approval steps
+
+**Knowledge Managers:**
+- Wanted oversight and control
+- Needed gradual trust-building with AI
+- Uncomfortable with black-box decisions
+
+Attempting to please everyone pleased no one. Adoption stalled because different users had fundamentally different trust levels and risk tolerances.`,
+
+    approach: `**Persona Research:**
+Identified that the "conflict" wasn't between roles—it was between **progressive trust stages**. Everyone starts skeptical, but some users build trust faster.
+
+**Key Insight:**
+User segmentation isn't just demographics. It's risk tolerance, trust levels, and control preferences. Same product, different configuration.
+
+**Strategic Solution:**
+Design for persona-specific needs AND trust progression. Let users teach the AI their boundaries.`,
+
+    solution: `**AI Confidence Scoring System**
+
+*1. Confidence Levels*
+- AI rates its own confidence on each action (0-100%)
+- Based on: data quality, model certainty, historical accuracy
+
+*2. User-Adjustable Thresholds*
+
+**Knowledge Managers (Low Risk Tolerance):**
+- Start with high threshold (95%+ for auto-approval)
+- Everything else requires human review
+- Full control and oversight
+
+**CEOs (High Autonomy Seekers):**
+- Start with medium threshold (70%+)
+- Faster automation, still safe
+- Can adjust lower as trust builds
+
+*3. Progressive Autonomy*
+- System tracks accuracy over time
+- Suggests threshold adjustments: "Your AI has 97% accuracy—consider lowering threshold?"
+- Users gradually increase automation as they build trust
+- Honors user agency in trust-building
+
+**Persona-Specific Marketing:**
+- To CEOs: "Autonomous AI that saves 78% of your time"
+- To Knowledge Managers: "AI assistant with you in complete control"
+- Same product, different positioning`,
+
+    impact: [
+      {
+        metric: 'User Satisfaction',
+        value: '91%',
+        description: 'Satisfaction (vs. 62% with forced automation)',
+      },
+      {
+        metric: 'Trust Progression',
+        value: '85%',
+        description: 'Users in "high trust" mode (70%+ auto) after 3 months',
+      },
+      {
+        metric: 'Time Savings',
+        value: '78%',
+        description: 'Time saved on knowledge management for CEOs',
+      },
+      {
+        metric: 'Trust Incidents',
+        value: '0',
+        description: 'Zero major AI errors that damaged user confidence',
+      },
+      {
+        metric: 'Retention Boost',
+        value: '+2.3x',
+        description: 'Users who customized thresholds had higher retention',
+      },
+    ],
+
+    learnings: [
+      '**Segmentation isn\'t who people are—it\'s how they trust.** Risk tolerance and control preferences matter more than job titles or company size.',
+      '**Progressive trust > forced automation.** Letting users build confidence gradually (with data to back it up) worked better than forcing them to "just trust the AI."',
+      '**Let users teach the system their boundaries.** The configurable threshold approach honored user agency. People don\'t resist AI—they resist loss of control.',
+      '**Marketing matters.** Same product, different messaging. CEOs heard "autonomous," Knowledge Managers heard "in control." Both were true, but the frame mattered.',
+    ],
+
+    themeConnection: 'Listened to both personas and discovered their "conflict" was actually a trust journey. Designed a system that adapts to user comfort levels—because every user truly does have their own universe.',
+
+    difficultyRating: 4,
+    xpReward: 4500,
+    achievementId: 'segmentation-master',
+  },
 ];
+
+export function getCaseStudy(id: string): CaseStudy | undefined {
+  return caseStudiesData.find(cs => cs.id === id);
+}
+
+export function getCaseStudyByTrack(track: number): CaseStudy | undefined {
+  return caseStudiesData.find(cs => cs.track === track);
+}
