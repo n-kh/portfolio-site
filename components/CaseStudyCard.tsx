@@ -68,9 +68,9 @@ export default function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) 
 
           {/* Play Button */}
           <div className="flex items-center justify-between">
-            <button className="flex items-center gap-2 text-neon-cyan font-medium group-hover:gap-3 transition-all">
+            <div className="flex items-center gap-2 text-neon-cyan font-medium group-hover:gap-3 transition-all">
               <span>▶ Play Track</span>
-            </button>
+            </div>
 
             <span className="font-mono text-sm text-text-muted">
               +{caseStudy.xpReward} XP
