@@ -29,9 +29,9 @@ export default function Home() {
       <Timeline />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+      <section className="py-20 bg-gradient-to-br from-electric-indigo to-deep-purple text-white">
         <div className="container-custom text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
             Let's Build Something Amazing
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
@@ -41,7 +41,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg hover:bg-background-light transition-colors shadow-lg"
+              className="px-8 py-4 bg-neon-cyan text-midnight rounded-lg font-semibold text-lg hover:bg-white transition-colors shadow-lg"
             >
               Get In Touch
             </Link>

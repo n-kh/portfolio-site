@@ -38,13 +38,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-text text-white py-12">
+    <footer className="bg-midnight-dark border-t border-electric-indigo/20 text-white py-12">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand section */}
           <div>
-            <div className="text-2xl font-bold gradient-text mb-4">NK</div>
-            <p className="text-gray-300 mb-4">
+            <div className="font-display text-2xl gradient-text mb-4">NK</div>
+            <p className="text-text-secondary mb-4">
               Product Manager specializing in AI/ML products and intelligent user
               experiences.
             </p>
@@ -57,7 +57,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
+                    className="w-10 h-10 bg-charcoal rounded-lg flex items-center justify-center hover:bg-electric-indigo transition-colors border border-electric-indigo/20"
                     aria-label={social.name}
                   >
                     <Icon className="w-5 h-5" />
@@ -69,13 +69,13 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-display text-lg mb-4">QUICK LINKS</h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-text-secondary hover:text-neon-cyan transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -86,12 +86,12 @@ export default function Footer() {
 
           {/* Contact info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
-            <div className="space-y-2 text-gray-300">
+            <h3 className="font-display text-lg mb-4">GET IN TOUCH</h3>
+            <div className="space-y-2 text-text-secondary">
               <p>Open to PM opportunities and consulting projects</p>
               <a
                 href="mailto:nimit.khurana@gmail.com"
-                className="text-primary hover:text-primary-light transition-colors"
+                className="text-neon-cyan hover:text-white transition-colors"
               >
                 nimit.khurana@gmail.com
               </a>
@@ -100,11 +100,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-300 text-sm">
+        <div className="pt-8 border-t border-electric-indigo/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-text-muted text-sm">
             © {currentYear} Nimit Khurana. All rights reserved.
           </p>
-          <p className="text-gray-300 text-sm">
+          <p className="text-text-muted text-sm">
             Built with Next.js, TypeScript, and Tailwind CSS
           </p>
         </div>

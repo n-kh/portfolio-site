@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-background-light">
+    <div className="pt-24 pb-20 min-h-screen bg-midnight">
       <div className="container-custom max-w-4xl">
         {/* Page header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">
-            About Me
+          <h1 className="font-display text-5xl md:text-6xl text-text-primary mb-6">
+            ABOUT ME
           </h1>
           <p className="text-xl text-text-secondary">
             My journey in building AI-powered products that users love
@@ -24,8 +24,8 @@ export default function AboutPage() {
         {/* Main content */}
         <div className="space-y-8">
           {/* Introduction */}
-          <section className="bg-white rounded-xl p-8 md:p-12 shadow-md">
-            <h2 className="text-3xl font-bold text-text mb-6">
+          <section className="bg-charcoal rounded-xl p-8 md:p-12 border border-electric-indigo/20">
+            <h2 className="font-display text-3xl text-text-primary mb-6">
               Hi, I'm Nimit 👋
             </h2>
             <div className="prose prose-lg max-w-none text-text-secondary space-y-4">
@@ -46,13 +46,13 @@ export default function AboutPage() {
           </section>
 
           {/* My Approach */}
-          <section className="bg-white rounded-xl p-8 md:p-12 shadow-md">
-            <h2 className="text-3xl font-bold text-text mb-6">
-              My Product Philosophy
+          <section className="bg-charcoal rounded-xl p-8 md:p-12 border border-electric-indigo/20">
+            <h2 className="font-display text-3xl text-text-primary mb-6">
+              MY PRODUCT PHILOSOPHY
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold text-text mb-3 flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-3 flex items-center gap-2">
                   <span className="text-2xl">🎯</span>
                   User-Centric AI
                 </h3>
@@ -64,7 +64,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-text mb-3 flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-3 flex items-center gap-2">
                   <span className="text-2xl">📊</span>
                   Data-Driven Decisions
                 </h3>
@@ -76,7 +76,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-text mb-3 flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-3 flex items-center gap-2">
                   <span className="text-2xl">🤝</span>
                   Technical Collaboration
                 </h3>
@@ -89,7 +89,7 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-text mb-3 flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-3 flex items-center gap-2">
                   <span className="text-2xl">🚀</span>
                   Iterative Execution
                 </h3>
@@ -104,8 +104,8 @@ export default function AboutPage() {
           </section>
 
           {/* Background */}
-          <section className="bg-white rounded-xl p-8 md:p-12 shadow-md">
-            <h2 className="text-3xl font-bold text-text mb-6">Background</h2>
+          <section className="bg-charcoal rounded-xl p-8 md:p-12 border border-electric-indigo/20">
+            <h2 className="font-display text-3xl text-text-primary mb-6">BACKGROUND</h2>
             <div className="prose prose-lg max-w-none text-text-secondary space-y-4">
               <p>
                 My product management career began after working as a software
@@ -120,15 +120,15 @@ export default function AboutPage() {
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  <strong>Startups:</strong> Built 0-1 products, defined product
+                  <strong className="text-text-primary">Startups:</strong> Built 0-1 products, defined product
                   strategy, wore multiple hats
                 </li>
                 <li>
-                  <strong>Growth companies:</strong> Scaled products from thousands
+                  <strong className="text-text-primary">Growth companies:</strong> Scaled products from thousands
                   to millions of users
                 </li>
                 <li>
-                  <strong>Enterprise:</strong> Worked with Fortune 500 clients,
+                  <strong className="text-text-primary">Enterprise:</strong> Worked with Fortune 500 clients,
                   navigated complex stakeholder landscapes
                 </li>
               </ul>
@@ -141,15 +141,15 @@ export default function AboutPage() {
           </section>
 
           {/* What I'm Looking For */}
-          <section className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-xl p-8 md:p-12 shadow-md">
-            <h2 className="text-3xl font-bold mb-6">What I'm Looking For</h2>
+          <section className="bg-gradient-to-br from-electric-indigo to-deep-purple text-white rounded-xl p-8 md:p-12">
+            <h2 className="font-display text-3xl mb-6">WHAT I'M LOOKING FOR</h2>
             <div className="space-y-4 text-lg">
               <p>
                 I'm interested in opportunities where I can leverage my AI/ML
                 expertise to build products that make a meaningful impact. Ideal
                 roles include:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul className="list-disc pl-6 space-y-2 opacity-90">
                 <li>Senior/Lead PM roles focused on AI/ML products</li>
                 <li>
                   Technical PM positions working on recommendation systems,
@@ -173,8 +173,8 @@ export default function AboutPage() {
           </section>
 
           {/* CTA */}
-          <section className="bg-white rounded-xl p-8 md:p-12 shadow-md text-center">
-            <h2 className="text-3xl font-bold text-text mb-4">Let's Connect</h2>
+          <section className="bg-charcoal rounded-xl p-8 md:p-12 border border-electric-indigo/20 text-center">
+            <h2 className="font-display text-3xl text-text-primary mb-4">LET'S CONNECT</h2>
             <p className="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
               Interested in working together or want to discuss AI product strategy?
               I'd love to hear from you.
@@ -182,14 +182,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-md"
+                className="px-8 py-3 bg-electric-indigo text-white rounded-lg font-semibold hover:bg-deep-purple transition-colors shadow-md"
               >
                 Get In Touch
               </Link>
               <a
                 href="/resume.pdf"
                 download
-                className="px-8 py-3 bg-white text-primary rounded-lg font-semibold border-2 border-primary hover:bg-primary/5 transition-colors flex items-center gap-2"
+                className="px-8 py-3 bg-transparent text-neon-cyan rounded-lg font-semibold border-2 border-neon-cyan hover:bg-neon-cyan/10 transition-colors flex items-center gap-2"
               >
                 <HiDownload className="w-5 h-5" />
                 Download Resume
