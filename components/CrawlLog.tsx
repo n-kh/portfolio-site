@@ -118,7 +118,8 @@ function CrawlLogEntry({ event, index }: EntryProps) {
 
         {event.location && (
           <p className="font-mono text-xs text-cyan-terminal mb-3">
-            // {event.location}
+            {'// '}
+            {event.location}
           </p>
         )}
 

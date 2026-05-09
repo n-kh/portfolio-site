@@ -49,7 +49,8 @@ export default function PowerCard({ power, index }: PowerCardProps) {
 
       {/* Recruiter-facing tagline */}
       <p className="font-mono text-xs text-cyan-terminal mb-3 opacity-90">
-        // {power.recruiterTagline}
+        {'// '}
+        {power.recruiterTagline}
       </p>
 
       {/* Rank pips */}
