@@ -22,7 +22,7 @@ export default function Timeline() {
   };
 
   return (
-    <section className="py-20 bg-background-light" ref={ref}>
+    <section className="py-20 bg-midnight" ref={ref}>
       <div className="container-custom">
         {/* Section header */}
         <motion.div
@@ -31,8 +31,8 @@ export default function Timeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
-            Experience
+          <h2 className="font-display text-4xl md:text-5xl text-text-primary mb-4">
+            EXPERIENCE
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
             Career journey building AI-powered products
@@ -42,7 +42,7 @@ export default function Timeline() {
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-electric-indigo/30 hidden md:block" />
 
           {/* Timeline items */}
           <div className="space-y-8">
@@ -58,17 +58,17 @@ export default function Timeline() {
                   className="relative"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 w-4 h-4 bg-primary rounded-full border-4 border-background-light transform -translate-x-1/2 hidden md:block" />
+                  <div className="absolute left-8 w-4 h-4 bg-neon-cyan rounded-full border-4 border-midnight transform -translate-x-1/2 hidden md:block shadow-glow" />
 
                   {/* Content card */}
-                  <div className="md:ml-20 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border border-background-gray">
+                  <div className="md:ml-20 bg-charcoal rounded-xl p-6 transition-all border border-electric-indigo/20 hover:border-neon-cyan/30">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-text mb-1">
+                        <h3 className="font-display text-2xl text-text-primary mb-1">
                           {exp.role}
                         </h3>
-                        <div className="text-lg text-primary font-semibold mb-1">
+                        <div className="text-lg text-neon-cyan font-semibold mb-1">
                           {exp.company}
                         </div>
                         <div className="text-sm text-text-secondary">
@@ -78,7 +78,7 @@ export default function Timeline() {
 
                       <button
                         onClick={() => toggleExpanded(exp.id)}
-                        className="p-2 hover:bg-background-gray rounded-lg transition-colors"
+                        className="p-2 hover:bg-midnight rounded-lg transition-colors"
                       >
                         {isExpanded ? (
                           <HiChevronUp className="w-6 h-6 text-text-secondary" />
@@ -96,12 +96,12 @@ export default function Timeline() {
                       {exp.impact.map((item, impactIdx) => (
                         <div
                           key={impactIdx}
-                          className="px-3 py-2 bg-accent/10 rounded-lg"
+                          className="px-3 py-2 bg-electric-indigo/10 rounded-lg border border-electric-indigo/20"
                         >
                           <div className="text-sm text-text-secondary">
                             {item.metric}
                           </div>
-                          <div className="text-lg font-bold text-accent">
+                          <div className="text-lg font-bold text-amber-gold">
                             {item.value}
                           </div>
                         </div>
@@ -118,10 +118,10 @@ export default function Timeline() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="pt-4 border-t border-background-gray">
+                      <div className="pt-4 border-t border-electric-indigo/20">
                         {/* Achievements */}
                         <div className="mb-4">
-                          <h4 className="font-semibold text-text mb-3">
+                          <h4 className="font-semibold text-text-primary mb-3">
                             Key Achievements
                           </h4>
                           <ul className="space-y-2">
@@ -130,7 +130,7 @@ export default function Timeline() {
                                 key={achIdx}
                                 className="flex items-start gap-2 text-text-secondary"
                               >
-                                <span className="text-primary mt-1.5">•</span>
+                                <span className="text-neon-cyan mt-1.5">•</span>
                                 <span>{achievement}</span>
                               </li>
                             ))}
@@ -139,14 +139,14 @@ export default function Timeline() {
 
                         {/* Technologies */}
                         <div>
-                          <h4 className="font-semibold text-text mb-3">
+                          <h4 className="font-semibold text-text-primary mb-3">
                             Technologies
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech, techIdx) => (
                               <span
                                 key={techIdx}
-                                className="px-3 py-1 bg-background-gray text-text-secondary text-sm font-medium rounded-full"
+                                className="px-3 py-1 bg-midnight text-text-secondary text-sm font-medium rounded-full border border-electric-indigo/20"
                               >
                                 {tech}
                               </span>

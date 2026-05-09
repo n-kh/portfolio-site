@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-background-light">
+    <div className="pt-24 pb-20 min-h-screen bg-midnight">
       <div className="container-custom">
         {/* Page header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">
-            Case Studies
+          <h1 className="font-display text-5xl md:text-6xl text-text-primary mb-6">
+            CASE STUDIES
           </h1>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-6">
             Detailed breakdowns of AI/ML products I've shipped. Read the full
@@ -26,7 +26,7 @@ export default function CaseStudiesPage() {
             href={SUBSTACK_BASE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-md"
+            className="inline-block px-6 py-3 bg-electric-indigo text-white rounded-lg font-semibold hover:bg-deep-purple transition-colors shadow-md"
           >
             Subscribe on Substack
           </a>
@@ -41,9 +41,9 @@ export default function CaseStudiesPage() {
 
         {/* Additional context */}
         <div className="mt-16 text-center">
-          <div className="max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-md border border-background-gray">
-            <h3 className="text-2xl font-bold text-text mb-4">
-              Want to Discuss These Projects?
+          <div className="max-w-3xl mx-auto p-8 bg-charcoal rounded-xl border border-electric-indigo/20">
+            <h3 className="font-display text-2xl text-text-primary mb-4">
+              WANT TO DISCUSS THESE PROJECTS?
             </h3>
             <p className="text-text-secondary mb-6">
               I'm happy to go deeper into the technical details, decision-making
@@ -51,7 +51,7 @@ export default function CaseStudiesPage() {
             </p>
             <a
               href="/contact"
-              className="inline-block px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors shadow-md"
+              className="inline-block px-8 py-3 bg-electric-indigo text-white rounded-lg font-semibold hover:bg-deep-purple transition-colors shadow-md"
             >
               Let's Talk
             </a>

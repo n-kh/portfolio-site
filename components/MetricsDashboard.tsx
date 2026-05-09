@@ -31,7 +31,7 @@ export default function MetricsDashboard() {
   };
 
   return (
-    <section className="py-20 bg-background-light" ref={ref}>
+    <section className="py-20 bg-midnight" ref={ref}>
       <div className="container-custom">
         {/* Section header */}
         <motion.div
@@ -40,8 +40,8 @@ export default function MetricsDashboard() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
-            Impact & Achievements
+          <h2 className="font-display text-4xl md:text-5xl text-text-primary mb-4">
+            IMPACT & ACHIEVEMENTS
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
             Quantifiable results from shipping AI/ML products at scale
@@ -59,23 +59,16 @@ export default function MetricsDashboard() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all border border-background-gray"
+              whileHover={{ scale: 1.03, y: -4, boxShadow: '0 0 24px rgba(34, 211, 238, 0.3)' }}
+              className="bg-charcoal rounded-xl p-8 transition-all border border-electric-indigo/20 hover:border-neon-cyan/40"
             >
-              {/* Icon */}
               <div className="text-5xl mb-4">{metric.icon}</div>
-
-              {/* Value */}
-              <div className="text-4xl font-bold text-primary mb-2">
+              <div className="font-display text-4xl text-neon-cyan mb-2">
                 {metric.value}
               </div>
-
-              {/* Label */}
-              <div className="text-xl font-semibold text-text mb-2">
+              <div className="text-xl font-semibold text-text-primary mb-2">
                 {metric.label}
               </div>
-
-              {/* Description */}
               <div className="text-sm text-text-secondary">
                 {metric.description}
               </div>

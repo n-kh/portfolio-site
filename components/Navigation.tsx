@@ -36,7 +36,7 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-md'
+          ? 'bg-midnight/90 backdrop-blur-md border-b border-electric-indigo/20'
           : 'bg-transparent'
       }`}
     >
@@ -50,7 +50,7 @@ export default function Navigation() {
               className="flex items-center space-x-2"
             >
               <span className="text-2xl font-bold gradient-text">NK</span>
-              <span className="hidden sm:inline text-lg font-semibold text-text">
+              <span className="hidden sm:inline text-lg font-semibold text-text-primary">
                 Product Manager
               </span>
             </motion.div>
@@ -66,15 +66,15 @@ export default function Navigation() {
                   href={link.href}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors relative ${
                     isActive
-                      ? 'text-primary'
-                      : 'text-text-secondary hover:text-primary'
+                      ? 'text-neon-cyan'
+                      : 'text-text-secondary hover:text-neon-cyan'
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-neon-cyan"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -88,7 +88,7 @@ export default function Navigation() {
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors shadow-md"
+              className="ml-4 px-6 py-2 bg-electric-indigo text-white rounded-lg font-medium hover:bg-deep-purple transition-colors shadow-md"
             >
               Resume
             </motion.a>
@@ -97,13 +97,13 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-background-gray transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-charcoal transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <HiX className="w-6 h-6 text-text" />
+              <HiX className="w-6 h-6 text-text-primary" />
             ) : (
-              <HiMenu className="w-6 h-6 text-text" />
+              <HiMenu className="w-6 h-6 text-text-primary" />
             )}
           </button>
         </div>
@@ -117,7 +117,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white border-t border-background-gray"
+            className="md:hidden bg-midnight border-t border-electric-indigo/20"
           >
             <div className="container-custom py-4 space-y-2">
               {navLinks.map((link) => {
@@ -128,8 +128,8 @@ export default function Navigation() {
                     href={link.href}
                     className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
                       isActive
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-text-secondary hover:bg-background-gray'
+                        ? 'bg-electric-indigo/10 text-neon-cyan'
+                        : 'text-text-secondary hover:bg-charcoal hover:text-text-primary'
                     }`}
                   >
                     {link.label}
@@ -139,7 +139,7 @@ export default function Navigation() {
               <a
                 href="/resume.pdf"
                 download
-                className="block px-4 py-3 bg-primary text-white rounded-lg font-medium text-center hover:bg-primary-dark transition-colors"
+                className="block px-4 py-3 bg-electric-indigo text-white rounded-lg font-medium text-center hover:bg-deep-purple transition-colors"
               >
                 Download Resume
               </a>
