@@ -10,7 +10,7 @@ export default function SkillsShowcase() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-20 bg-white" ref={ref}>
+    <section className="py-20 bg-midnight-dark" ref={ref}>
       <div className="container-custom">
         {/* Section header */}
         <motion.div
@@ -19,8 +19,8 @@ export default function SkillsShowcase() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-text mb-4">
-            AI/ML PM Skills
+          <h2 className="font-display text-4xl md:text-5xl text-text-primary mb-4">
+            AI/ML PM SKILLS
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
             Comprehensive expertise in building and scaling AI-powered products
@@ -35,35 +35,33 @@ export default function SkillsShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-background-light rounded-xl p-6 hover:shadow-lg transition-all"
+              className="bg-charcoal rounded-xl p-6 hover:shadow-lg border border-electric-indigo/20 transition-all"
             >
-              {/* Category header */}
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-4xl">{category.icon}</span>
-                <h3 className="text-2xl font-bold text-text">
+                <h3 className="font-display text-2xl text-text-primary">
                   {category.category}
                 </h3>
               </div>
 
-              {/* Skills list */}
               <div className="space-y-3">
                 {category.skills.map((skill, skillIdx) => (
                   <motion.div
                     key={skillIdx}
                     whileHover={{ x: 5 }}
-                    className="bg-white rounded-lg p-4 border border-background-gray hover:border-primary/30 transition-all cursor-default"
+                    className="bg-midnight rounded-lg p-4 border border-electric-indigo/10 hover:border-neon-cyan/30 transition-all cursor-default"
                   >
                     <div className="flex items-start justify-between mb-1">
-                      <h4 className="font-semibold text-text">
+                      <h4 className="font-semibold text-text-primary">
                         {skill.name}
                       </h4>
                       <span
                         className={`px-2 py-1 text-xs font-medium rounded ${
                           skill.level === 'Expert'
-                            ? 'bg-accent/20 text-accent'
+                            ? 'bg-amber-gold/20 text-amber-gold'
                             : skill.level === 'Advanced'
-                            ? 'bg-primary/20 text-primary'
-                            : 'bg-background-gray text-text-secondary'
+                            ? 'bg-electric-indigo/20 text-neon-cyan'
+                            : 'bg-charcoal text-text-secondary'
                         }`}
                       >
                         {skill.level}
@@ -86,15 +84,15 @@ export default function SkillsShowcase() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-12"
         >
-          <h3 className="text-2xl font-bold text-text mb-6 text-center">
-            PM Frameworks & Methodologies
+          <h3 className="font-display text-2xl text-text-primary mb-6 text-center">
+            PM FRAMEWORKS & METHODOLOGIES
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {frameworks.map((framework, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 bg-primary/10 text-primary rounded-lg font-medium border border-primary/20"
+                className="px-4 py-2 bg-electric-indigo/10 text-neon-cyan rounded-lg font-medium border border-electric-indigo/20 hover:border-neon-cyan/40 transition-colors"
               >
                 {framework}
               </motion.div>
@@ -108,13 +106,13 @@ export default function SkillsShowcase() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="text-2xl font-bold text-text mb-6 text-center">
-            Tools & Technologies
+          <h3 className="font-display text-2xl text-text-primary mb-6 text-center">
+            TOOLS & TECHNOLOGIES
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {Object.entries(tools).map(([category, toolList], idx) => (
-              <div key={idx} className="bg-background-light rounded-lg p-4">
-                <h4 className="font-semibold text-text mb-3 capitalize">
+              <div key={idx} className="bg-charcoal rounded-lg p-4 border border-electric-indigo/10">
+                <h4 className="font-semibold text-text-primary mb-3 capitalize">
                   {category.replace(/([A-Z])/g, ' $1').trim()}
                 </h4>
                 <div className="space-y-2">
@@ -123,7 +121,7 @@ export default function SkillsShowcase() {
                       key={toolIdx}
                       className="text-sm text-text-secondary flex items-center gap-2"
                     >
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-neon-cyan rounded-full" />
                       {tool}
                     </div>
                   ))}
