@@ -1,25 +1,31 @@
 :root {
-  /* Colors - Dark Theme */
-  --midnight-base: #0a0f1c;
-  --charcoal: #1a1d29;
-  --deep-space: #0d1321;
+  /* DCC Palette - dungeon stone base + holographic system overlay */
+  --bg-stone-deep: #1a1614;
+  --bg-stone: #2a2422;
+  --bg-stone-light: #3a322e;
 
-  --electric-indigo: #5b21b6;
-  --deep-purple: #6b21a8;
-  --cosmic-violet: #7c3aed;
+  --text-system: #f5b94a;       /* amber holographic AI announcer */
+  --text-system-dim: #a87f33;
+  --accent-cyan: #5cf2e8;       /* terminal cyan */
+  --accent-cyan-dim: #2ea69e;
 
-  --neon-cyan: #22d3ee;
-  --amber-gold: #fbbf24;
-  --hot-pink: #ff006e;
+  --danger-red: #e8453c;
+  --success-green: #5cf284;
+  --warn-yellow: #f2d95c;
+  --sponsor-magenta: #f04ec0;
+  --xp-gold: #ffd56b;
 
-  --text-primary: #e5e7eb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  --text-primary: #e8dfc6;       /* parchment */
+  --text-secondary: #a89b7a;
+  --text-muted: #6b624c;
+  --border-system: rgba(245, 185, 74, 0.35);
+  --border-cyan: rgba(92, 242, 232, 0.35);
 
   /* Typography */
-  --font-display: 'Righteous', sans-serif;
+  --font-display: 'Press Start 2P', 'Courier New', monospace;
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-meme: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -30,35 +36,35 @@
   --space-2xl: 4rem;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(91, 33, 182, 0.1);
-  --shadow-md: 0 4px 16px rgba(91, 33, 182, 0.2);
-  --shadow-lg: 0 8px 32px rgba(91, 33, 182, 0.3);
-  --shadow-glow: 0 0 24px rgba(34, 211, 238, 0.4);
-  --shadow-achievement: 0 0 32px rgba(251, 191, 36, 0.6);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow-cyan: 0 0 24px rgba(92, 242, 232, 0.4);
+  --shadow-glow-system: 0 0 24px rgba(245, 185, 74, 0.45);
+  --shadow-glow-danger: 0 0 24px rgba(232, 69, 60, 0.5);
+  --shadow-loot: 0 0 32px rgba(255, 213, 107, 0.6);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-base: 250ms ease-in-out;
   --transition-slow: 400ms ease-in-out;
 
-  /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  /* Border Radius - DCC favors hard edges; keep small */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
 
-  /* Progressive Disclosure - Pattern Intensity */
-  --pattern-opacity: 0.1;
+  /* Progressive Disclosure - dungeon mist intensifies with engagement */
+  --pattern-opacity: 0.15;
 }
 
-/* State classes for progressive disclosure */
-.disclosure-state-0 { --pattern-opacity: 0.1; }
+.disclosure-state-0 { --pattern-opacity: 0.15; }
 .disclosure-state-1 { --pattern-opacity: 0.3; }
-.disclosure-state-2 { --pattern-opacity: 0.4; }
-.disclosure-state-3 { --pattern-opacity: 0.5; }
-.disclosure-state-4 { --pattern-opacity: 0.6; }
+.disclosure-state-2 { --pattern-opacity: 0.45; }
+.disclosure-state-3 { --pattern-opacity: 0.55; }
+.disclosure-state-4 { --pattern-opacity: 0.7; }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

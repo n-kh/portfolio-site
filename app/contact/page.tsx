@@ -1,240 +1,301 @@
 'use client';
 
 import { useState } from 'react';
-import { FaLinkedin, FaEnvelope, FaCalendar } from 'react-icons/fa';
-import { HiCheckCircle } from 'react-icons/hi';
+import { motion } from 'framer-motion';
+import SystemMessage from '@/components/SystemMessage';
+import {
+  EMAIL,
+  LINKEDIN_URL,
+  SUBSTACK_URL,
+  CALENDLY_URL,
+  RESUME_PATH,
+} from '@/lib/constants';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // TODO(user): wire to Netlify Forms or other backend before launch.
+    await new Promise((r) => setTimeout(r, 1500));
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
+    setSubmitting(false);
+    setSent(true);
     setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+      setSent(false);
+      setForm({ name: '', email: '', subject: '', message: '' });
+    }, 3500);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const inventoryItems = [
+    {
+      icon: '📅',
+      label: 'Schedule Audience',
+      sub: CALENDLY_URL ? '30 min · book a slot' : 'TODO(user): paste Calendly link',
+      href: CALENDLY_URL || '#',
+      disabled: !CALENDLY_URL,
+      external: true,
+    },
+    {
+      icon: '✉',
+      label: 'Send Scroll (Email)',
+      sub: EMAIL,
+      href: `mailto:${EMAIL}`,
+      external: false,
+    },
+    {
+      icon: '🔗',
+      label: 'LinkedIn',
+      sub: 'Connect on the network',
+      href: LINKEDIN_URL,
+      external: true,
+    },
+    {
+      icon: '📜',
+      label: 'Substack',
+      sub: 'Read field reports',
+      href: SUBSTACK_URL,
+      external: true,
+    },
+    {
+      icon: '📄',
+      label: 'Stat Sheet',
+      sub: 'Download resume PDF',
+      href: RESUME_PATH,
+      external: false,
+      download: true,
+    },
+  ];
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-midnight">
-      <div className="container-custom max-w-5xl">
-        {/* Page header */}
-        <div className="text-center mb-16">
-          <h1 className="font-display text-5xl md:text-6xl text-text-primary mb-6">
-            GET IN TOUCH
-          </h1>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            Interested in working together, discussing AI product strategy, or just
-            want to connect? I'd love to hear from you.
+    <section className="min-h-screen pt-24 pb-16 px-4">
+      <div className="container-custom max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <p className="font-mono text-cyan-glow text-sm mb-3 tracking-widest">
+            [ /SYSTEM/AUDIENCE_REQUEST ]
+          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="font-display text-2xl sm:text-3xl md:text-4xl text-parchment mb-4"
+            style={{ textShadow: '0 0 12px rgba(245, 185, 74, 0.4)' }}
+          >
+            INCOMING TRANSMISSION
+          </motion.h1>
+          <p className="font-mono text-sm text-parchment-dim max-w-2xl mx-auto">
+            The Crawler accepts incoming transmissions. Pick a channel below
+            or send a scroll directly.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact methods */}
-          <div className="lg:col-span-1 space-y-6">
-            <div className="bg-charcoal rounded-xl p-6 border border-electric-indigo/20">
-              <h2 className="font-display text-2xl text-text-primary mb-6">
-                CONTACT METHODS
-              </h2>
+        <div className="mb-8">
+          <SystemMessage tone="success" prefix="[Status]:" flicker>
+            🟢 ACCEPTING NEW QUESTS · response window approximately 48h
+          </SystemMessage>
+        </div>
 
-              <a
-                href="mailto:nimit.khurana@gmail.com"
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-midnight transition-colors group mb-4"
-              >
-                <div className="w-12 h-12 bg-electric-indigo/10 rounded-lg flex items-center justify-center group-hover:bg-electric-indigo/20 transition-colors flex-shrink-0">
-                  <FaEnvelope className="w-6 h-6 text-neon-cyan" />
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary mb-1">Email</div>
-                  <div className="text-sm text-text-secondary">
-                    nimit.khurana@gmail.com
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="https://linkedin.com/in/nimitkhurana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-midnight transition-colors group mb-4"
-              >
-                <div className="w-12 h-12 bg-electric-indigo/10 rounded-lg flex items-center justify-center group-hover:bg-electric-indigo/20 transition-colors flex-shrink-0">
-                  <FaLinkedin className="w-6 h-6 text-neon-cyan" />
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary mb-1">LinkedIn</div>
-                  <div className="text-sm text-text-secondary">
-                    Connect on LinkedIn
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="https://calendly.com/nimit-khurana/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-midnight transition-colors group"
-              >
-                <div className="w-12 h-12 bg-electric-indigo/10 rounded-lg flex items-center justify-center group-hover:bg-electric-indigo/20 transition-colors flex-shrink-0">
-                  <FaCalendar className="w-6 h-6 text-neon-cyan" />
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary mb-1">
-                    Schedule a Call
-                  </div>
-                  <div className="text-sm text-text-secondary">
-                    Book a 30-min chat
-                  </div>
-                </div>
-              </a>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          {/* Inventory column */}
+          <div className="lg:col-span-2 space-y-3">
+            <div className="font-mono text-xs text-cyan-glow tracking-widest mb-3">
+              [ /INVENTORY/CONTACT_ITEMS ]
             </div>
 
-            {/* Availability */}
-            <div className="bg-gradient-to-br from-electric-indigo to-deep-purple text-white rounded-xl p-6">
-              <h3 className="font-display text-xl mb-3">CURRENT STATUS</h3>
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-3 h-3 bg-neon-cyan rounded-full animate-pulse" />
-                <span className="font-semibold">Open to Opportunities</span>
-              </div>
-              <p className="text-sm opacity-90">
-                Currently exploring PM roles focused on AI/ML products and consulting
-                projects.
-              </p>
-            </div>
+            {inventoryItems.map((item, i) => {
+              const className = `block panel-system p-4 transition-colors hover:shadow-glow-system ${
+                item.disabled ? 'opacity-50 pointer-events-none' : 'hover:border-system'
+              }`;
+              const content = (
+                <div className="flex items-start gap-4">
+                  <span className="text-2xl select-none" aria-hidden>
+                    {item.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="font-display text-sm text-parchment leading-tight">
+                      {item.label}
+                    </div>
+                    <div className="font-mono text-xs text-parchment-dim mt-1 break-all">
+                      {item.sub}
+                    </div>
+                  </div>
+                </div>
+              );
+
+              if (item.disabled) {
+                return (
+                  <div key={i} className={className}>
+                    {content}
+                  </div>
+                );
+              }
+
+              return (
+                <motion.a
+                  key={i}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                  download={item.download}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  whileHover={{ x: 4, transition: { duration: 0.15 } }}
+                  className={className}
+                >
+                  {content}
+                </motion.a>
+              );
+            })}
           </div>
 
-          {/* Contact form */}
-          <div className="lg:col-span-2">
-            <div className="bg-charcoal rounded-xl p-8 border border-electric-indigo/20">
-              <h2 className="font-display text-2xl text-text-primary mb-6">
-                SEND A MESSAGE
-              </h2>
+          {/* Form panel */}
+          <div className="lg:col-span-3">
+            <div className="font-mono text-xs text-cyan-glow tracking-widest mb-3">
+              [ /COMPOSE/SCROLL ]
+            </div>
 
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <HiCheckCircle className="w-20 h-20 text-neon-cyan mx-auto mb-4" />
-                  <h3 className="font-display text-2xl text-text-primary mb-2">
-                    MESSAGE SENT!
-                  </h3>
-                  <p className="text-text-secondary">
-                    Thank you for reaching out. I'll get back to you as soon as
-                    possible.
+            <div className="panel-system p-6 md:p-8">
+              {sent ? (
+                <div className="text-center py-8">
+                  <div className="text-6xl mb-4 select-none" aria-hidden>
+                    🎁
+                  </div>
+                  <h2 className="font-display text-xl md:text-2xl text-success mb-3">
+                    SCROLL DELIVERED
+                  </h2>
+                  <p className="font-mono text-sm text-parchment-dim">
+                    Transmission received. The Crawler will respond when the
+                    dungeon Wi-Fi cooperates.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-semibold text-text-primary mb-2"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-midnight border border-electric-indigo/30 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:border-transparent"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-semibold text-text-primary mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-midnight border border-electric-indigo/30 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:border-transparent"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-semibold text-text-primary mb-2"
-                    >
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-midnight border border-electric-indigo/30 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:border-transparent"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-semibold text-text-primary mb-2"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 bg-midnight border border-electric-indigo/30 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:border-transparent resize-none"
-                      placeholder="Tell me more..."
-                    />
-                  </div>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <Field
+                    label="Sender Designation"
+                    name="name"
+                    placeholder="Your name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Field
+                    label="Return Channel"
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Field
+                    label="Quest Title"
+                    name="subject"
+                    placeholder="What kind of quest is this?"
+                    value={form.subject}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Field
+                    label="Scroll Body"
+                    name="message"
+                    placeholder="Tell the Crawler more..."
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                    multiline
+                  />
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-electric-indigo text-white rounded-lg font-semibold text-lg hover:bg-deep-purple transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse"
+                    disabled={submitting}
+                    className="w-full font-display text-xs sm:text-sm px-6 py-4 bg-system text-stone-deep hover:bg-xp transition-colors disabled:opacity-50 disabled:cursor-not-allowed animate-pulse-glow"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {submitting ? '... TRANSMITTING ...' : '⚔ DISPATCH SCROLL'}
                   </button>
+
+                  <p className="font-mono text-[11px] text-parchment-muted text-center">
+                    TODO(user): wire this form to Netlify Forms (or your backend)
+                    before launch.
+                  </p>
                 </form>
               )}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+  );
+}
+
+interface FieldProps {
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  placeholder?: string;
+  type?: string;
+  required?: boolean;
+  multiline?: boolean;
+}
+
+function Field({
+  label,
+  name,
+  value,
+  onChange,
+  placeholder,
+  type = 'text',
+  required,
+  multiline,
+}: FieldProps) {
+  const baseClass =
+    'w-full bg-stone-deep/80 border border-system/30 px-4 py-3 font-mono text-sm text-parchment placeholder:text-parchment-muted focus:outline-none focus:border-system focus:shadow-glow-system transition-shadow';
+
+  return (
+    <label className="block">
+      <span className="block font-mono text-xs text-cyan-terminal mb-2 tracking-widest uppercase">
+        {label}
+        {required && <span className="text-danger ml-1">*</span>}
+      </span>
+      {multiline ? (
+        <textarea
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required={required}
+          rows={6}
+          className={`${baseClass} resize-none`}
+        />
+      ) : (
+        <input
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required={required}
+          className={baseClass}
+        />
+      )}
+    </label>
   );
 }

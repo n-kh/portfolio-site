@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Righteous, Outfit, JetBrains_Mono } from 'next/font/google';
+import { Press_Start_2P, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ProgressiveDisclosureProvider } from '@/components/ProgressiveDisclosureProvider';
-import GeometricBackground from '@/components/GeometricBackground';
+import DungeonBackground from '@/components/DungeonBackground';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-const righteous = Righteous({
+const pressStart = Press_Start_2P({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-display',
@@ -26,18 +26,31 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Nimit Khurana | AI Product Manager & UX Visionary',
-  description: 'AI Product Manager who turns customer insights into transformative products. 78% adoption, $50M+ impact, multi-modal AI expertise.',
-  keywords: ['AI Product Manager', 'ML Product Management', 'AI UX Design', 'Customer-Centric AI'],
+  title: 'Nimit Khurana | Sr. Product Manager @ Salesforce — Lv 09',
+  description:
+    'Senior Product Manager at Salesforce (Knowledge Base Management, Service Cloud). 14+ years across Salesforce, Amazon, NestAway, PwC, and TATA Motors. AI grounding, GenAI, and customer-centric product strategy.',
+  keywords: [
+    'Nimit Khurana',
+    'Senior Product Manager',
+    'Salesforce',
+    'Service Cloud',
+    'Knowledge Base Management',
+    'AI Product Manager',
+    'Amazon',
+    'NestAway',
+    'GenAI',
+  ],
   openGraph: {
-    title: 'Nimit Khurana | AI Product Manager',
-    description: 'Listening Transforms Everything - AI PM building products that adapt to humans',
+    title: 'Nimit Khurana | Sr. PM @ Salesforce — Lv 09 Crawler',
+    description:
+      '14+ years shipping products. Currently leading Knowledge Base Management at Salesforce. A Crawler\'s leveling log; audience requests accepted.',
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nimit Khurana | AI Product Manager',
-    description: 'Building AI products through deep customer understanding',
+    title: 'Nimit Khurana | Sr. PM @ Salesforce — Lv 09',
+    description:
+      'A Crawler\'s leveling log: Salesforce → Amazon → NestAway → PwC → TATA Motors. Audience requests accepted.',
   },
 };
 
@@ -47,10 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${righteous.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${pressStart.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body">
         <ProgressiveDisclosureProvider>
-          <GeometricBackground />
+          <DungeonBackground />
           <Navigation />
           <main className="relative z-10">
             {children}

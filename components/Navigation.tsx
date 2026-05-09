@@ -3,150 +3,154 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { motion } from 'framer-motion';
+import { NAV_LINKS, RESUME_PATH } from '@/lib/constants';
+import { CURRENT_LEVEL } from '@/data/levels';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/case-studies', label: 'Case Studies' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-];
-
+/**
+ * DCC HUD bar - fixed at top of every page.
+ * Format: [ Crawler: NK | Lv 09 | XP ●●●●●●●○○○ ]   nav links   ↓ resume
+ */
 export default function Navigation() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  // Handle scroll effect for navbar background
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
+
+  // 7 of 10 XP pips filled to evoke "mid-level"
+  const filledPips = 7;
+  const totalPips = 10;
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-midnight/90 backdrop-blur-md border-b border-electric-indigo/20'
+        scrolled
+          ? 'bg-stone-deep/85 backdrop-blur-md border-b border-system/30'
           : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2"
+        <div className="flex items-center justify-between h-14 md:h-16 font-mono">
+          {/* HUD readout - left */}
+          <Link href="/" className="flex items-center gap-3 group" aria-label="Home">
+            <span className="text-system text-sm md:text-base">[</span>
+            <span className="hidden sm:inline text-parchment text-xs md:text-sm">
+              Crawler:
+            </span>
+            <span className="text-system text-sm md:text-base font-semibold tracking-wider group-hover:text-xp transition-colors">
+              NK
+            </span>
+            <span className="hidden md:inline text-parchment-dim">|</span>
+            <span className="hidden md:inline text-cyan-terminal text-xs">
+              Lv {String(CURRENT_LEVEL).padStart(2, '0')}
+            </span>
+            <span className="hidden lg:inline text-parchment-dim">|</span>
+            <span
+              className="hidden lg:inline text-xs tracking-wider"
+              aria-label={`XP ${filledPips} of ${totalPips}`}
             >
-              <span className="text-2xl font-bold gradient-text">NK</span>
-              <span className="hidden sm:inline text-lg font-semibold text-text-primary">
-                Product Manager
-              </span>
-            </motion.div>
+              {Array.from({ length: totalPips }).map((_, i) => (
+                <span
+                  key={i}
+                  className={i < filledPips ? 'text-xp' : 'text-parchment-muted'}
+                >
+                  ●
+                </span>
+              ))}
+            </span>
+            <span className="text-system text-sm md:text-base">]</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors relative ${
-                    isActive
-                      ? 'text-neon-cyan'
-                      : 'text-text-secondary hover:text-neon-cyan'
+                  className={`relative px-4 py-2 text-xs uppercase tracking-widest transition-colors ${
+                    active
+                      ? 'text-system'
+                      : 'text-parchment-dim hover:text-parchment'
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-neon-cyan"
+                  {active && (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      className="absolute left-2 right-2 -bottom-0.5 h-px bg-system shadow-glow-system"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                 </Link>
               );
             })}
-
-            {/* CTA Button */}
-            <motion.a
-              href="/resume.pdf"
+            <a
+              href={RESUME_PATH}
               download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2 bg-electric-indigo text-white rounded-lg font-medium hover:bg-deep-purple transition-colors shadow-md"
+              className="ml-3 px-4 py-2 text-xs uppercase tracking-widest panel-system text-system hover:bg-system hover:text-stone-deep transition-colors"
             >
-              Resume
-            </motion.a>
+              ↓ Resume
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile burger */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-charcoal transition-colors"
-            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden p-2 text-system text-lg leading-none"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
           >
-            {isMobileMenuOpen ? (
-              <HiX className="w-6 h-6 text-text-primary" />
-            ) : (
-              <HiMenu className="w-6 h-6 text-text-primary" />
-            )}
+            {open ? '✕' : '≡'}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-midnight border-t border-electric-indigo/20"
-          >
-            <div className="container-custom py-4 space-y-2">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
-                      isActive
-                        ? 'bg-electric-indigo/10 text-neon-cyan'
-                        : 'text-text-secondary hover:bg-charcoal hover:text-text-primary'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <a
-                href="/resume.pdf"
-                download
-                className="block px-4 py-3 bg-electric-indigo text-white rounded-lg font-medium text-center hover:bg-deep-purple transition-colors"
-              >
-                Download Resume
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile drawer */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.2 }}
+          className="md:hidden bg-stone-deep/95 border-t border-system/30 backdrop-blur-md"
+        >
+          <div className="container-custom py-4 space-y-1 font-mono">
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-3 py-3 text-sm uppercase tracking-widest ${
+                    active
+                      ? 'panel-system text-system'
+                      : 'text-parchment-dim hover:text-parchment'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <a
+              href={RESUME_PATH}
+              download
+              className="block px-3 py-3 text-sm uppercase tracking-widest panel-cyan text-cyan-terminal text-center"
+            >
+              ↓ Download Stat Sheet
+            </a>
+          </div>
+        </motion.div>
+      )}
     </nav>
   );
 }

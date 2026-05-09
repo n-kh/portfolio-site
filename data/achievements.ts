@@ -1,3 +1,12 @@
+/**
+ * Achievements - "loot" the Crawler can unlock through engagement.
+ * Wired through ProgressiveDisclosureProvider.addAchievement(id, xp).
+ *
+ * Note: not currently surfaced in the DCC main page UI (Crawl Log shows its
+ * own loot per level). Reserved for future use, e.g. a hidden achievements
+ * panel or a `/floor/secret` easter-egg page.
+ */
+
 export interface Achievement {
   id: string;
   name: string;
@@ -8,56 +17,56 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
-    id: 'the-listener',
-    name: 'The Listener',
-    description: 'Turned customer feedback into product gold',
-    xpReward: 5000,
-    icon: '🎧',
+    id: 'first-floor-cleared',
+    name: 'First Floor Cleared',
+    description: 'Scrolled past the Crawler Profile',
+    xpReward: 500,
+    icon: '🪜',
   },
   {
-    id: 'multi-dimensional',
-    name: 'Multi-Dimensional',
-    description: 'Mastered multi-modal AI interactions',
-    xpReward: 4000,
-    icon: '🌈',
-  },
-  {
-    id: 'segmentation-master',
-    name: 'Segmentation Master',
-    description: 'Every user gets their own universe',
-    xpReward: 4500,
-    icon: '🎯',
-  },
-  {
-    id: 'strategic-thinker',
-    name: 'Strategic Thinker',
-    description: 'Identified what users need vs. what they asked for',
-    xpReward: 3500,
-    icon: '🧠',
-  },
-  {
-    id: 'explorer',
-    name: 'The Explorer',
-    description: 'Viewed all case studies',
-    xpReward: 2000,
-    icon: '🗺️',
-  },
-  {
-    id: 'character-study',
-    name: 'Character Study',
-    description: 'Opened the full skill tree',
+    id: 'power-sheet-inspected',
+    name: 'Stat-Hunter',
+    description: 'Viewed the full Power Sheet',
     xpReward: 1000,
-    icon: '⚔️',
+    icon: '📊',
   },
   {
-    id: 'quest-complete',
-    name: 'Album Complete',
-    description: 'Listened to all four tracks',
+    id: 'crawl-log-read',
+    name: 'Lore Master',
+    description: 'Read the full Crawl Log from Lv 01 to current',
+    xpReward: 2000,
+    icon: '📜',
+  },
+  {
+    id: 'audience-requested',
+    name: 'Diplomat',
+    description: 'Sent a transmission via the contact page',
+    xpReward: 5000,
+    icon: '✉',
+  },
+  {
+    id: 'dispatches-opened',
+    name: 'Subscribed',
+    description: 'Followed the Crawler\'s dispatches on Substack',
+    xpReward: 1500,
+    icon: '🚪',
+  },
+  {
+    id: 'resume-claimed',
+    name: 'Stat Sheet Acquired',
+    description: 'Downloaded the resume',
+    xpReward: 1500,
+    icon: '📄',
+  },
+  {
+    id: 'completionist',
+    name: 'Surface Cleared',
+    description: 'Visited every floor of the dungeon',
     xpReward: 10000,
-    icon: '💿',
+    icon: '🏆',
   },
 ];
 
 export function getAchievement(id: string): Achievement | undefined {
-  return achievements.find(a => a.id === id);
+  return achievements.find((a) => a.id === id);
 }
